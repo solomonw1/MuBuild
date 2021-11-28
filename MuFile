@@ -1,0 +1,11 @@
+Define NAME muBuild
+
+// A test MuFile which demonstrates targets and variables
+
+Target _nt Test
+    echo Hello &NAME are you having a good day?
+End
+
+Target _posix Test
+    echo "Hello &NAME are you having a good day?"
+End
