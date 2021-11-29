@@ -60,7 +60,18 @@ for line in splitByLine:
             muError("Define", lineNumber, "syntax_exception", "Define [VARNAME] VARDATA")
         if DEBUG:
             print("[parser] Define: "+data[1]+" with value: "+data[2])
-        fullVariables[data[1]] = data[2]
+        stringOfItems = ""
+        lastItemOnList = len(data) - 1
+        for item in data:
+            if item == data[0]:
+                continue
+            if item == data[1]:
+                continue
+            else:
+                stringOfItems += item + " "
+        l = len(stringOfItems)
+        stringOfItems = stringOfItems[:l-1]
+        fullVariables[data[1]] = stringOfItems
     elif data[0] == "Target":
         try:
             data[1]
