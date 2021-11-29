@@ -19,5 +19,5 @@ Target _posix Test
 End
 ```
 
-More documentation will be coming soon.
+More documentation will be coming soon.<br>
 Discord Server for MuTools: https://discord.gg/Zb5MHSBG
