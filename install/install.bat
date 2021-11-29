@@ -1,3 +1,4 @@
+@echo off
 mkdir C:\bin
 
 REM Copy our files
