@@ -144,15 +144,18 @@ for target in targetNames:
 
 file.close()
 
-try:
-    target = sys.argv[1]
-except:
-    muError("argv", 0, "command_exception", "mubuild [TARGET]", "the correct command syntax is:", False)
-
 if os.name == "nt":
     osname = "_nt"
 else:
     osname = "_posix"
+
+try:
+    target = sys.argv[1]
+except:
+    if "default" + osname in targetNames:
+        target = "default" + osname
+    else:
+        muError("argv", 0, "command_exception", "mubuild [TARGET]", "the correct command syntax is:", False)
 
 targetName = [target, osname]
 targetNameConcat = target + osname
