@@ -1,0 +1,12 @@
+#!/bin/bash
+mkdir /solbin
+
+# Copy our files
+cp install/mubuild /solbin/mubuild
+chmod +x /solbin/mubuild
+cp mubuild.py /solbin/mubuild.py
+[[ -f /solbin/donepath ]] && exit
+
+# add to path
+echo "PATH=/solbin:$PATH" >> ~/.profile
+echo DonePath >> /solbin/donepath
