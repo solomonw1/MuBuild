@@ -106,10 +106,13 @@ for line in splitByLine:
             stringForExec += " "
 
         withVariablesList = list(stringForExec)
-        while "&" in withVariablesList:
-            if "&" in withVariablesList:
-                location = withVariablesList.index("&")
-                locationEnd = withVariablesList.index(" ", location, len(withVariablesList) - 1)
+        while "#" in withVariablesList:
+            if "#" in withVariablesList:
+                location = withVariablesList.index("#")
+                try:   
+                    locationEnd = withVariablesList.index(" ", location, len(withVariablesList) - 1)
+                except:
+                    muError("Variable", lineNumber, "syntax_exception", "(Your Variable Name Goes Here)")
                 charactersNeeded = withVariablesList[location+1:locationEnd]
                 stringItem = ""
                 for item in charactersNeeded:
